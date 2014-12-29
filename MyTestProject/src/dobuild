@@ -1,0 +1,14 @@
+#!/bin/bash
+sh ./version/release.sh
+branch="master"
+version=v`cat version/MAJOR`.`cat version/MINOR`.`cat version/PATCH`-`cat version/RELEASE`
+buildno=`cat version/RELEASE`
+echo $version>version/VERSION
+cd ~/test/MyTestProject
+git tag -a $version -m "Mystest on $version"
+git push origin $version
+git add -u
+git commit -m "update build RELEASE to $buildno"
+git push origin $branch
+
+
