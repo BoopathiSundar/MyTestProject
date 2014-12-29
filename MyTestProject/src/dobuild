@@ -3,7 +3,7 @@ sh ./version/release.sh
 branch="master"
 version=v`cat version/MAJOR`.`cat version/MINOR`.`cat version/PATCH`-`cat version/RELEASE`
 buildno=`cat version/RELEASE`
-echo $version>version/VERSION
+echo $version>version/VERSION.txt
 cd ~/test/MyTestProject
 git tag -a $version -m "Mystest on $version"
 git push origin $version
